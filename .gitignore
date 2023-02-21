@@ -3,6 +3,7 @@
 **/part1/*
 **/part2/*
 **/part3/*
+**/notused/*
 upload.sh
 # .tfstate files
 *.tfstate
