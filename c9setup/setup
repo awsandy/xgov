@@ -34,15 +34,6 @@ aws configure set default.region ${AWS_REGION}
 aws configure get region
 
 
-
-aws sts get-caller-identity --query Arn | grep AWSCloud9SSMAccessRole > /dev/null
-if [ $? -eq 0 ]; then
-  rm -vf ${HOME}/.aws/credentials
-else
-  echo "ERROR: Could not find Instance profile AWSCloud9SSMAccessRole! - DO NOT PROCEED"
-  echo "Check Cloud9 AWS Managed temporary credentials are disabled - in AWS Settings"
-fi
-
 echo "Setup Terraform cache"
 if [ ! -f $HOME/.terraform.d/plugin-cache ];then
   mkdir -p $HOME/.terraform.d/plugin-cache
@@ -130,7 +121,7 @@ iip=$(aws ec2 describe-iam-instance-profile-associations --filters "Name=instanc
 if aws ec2 replace-iam-instance-profile-association --iam-instance-profile "Name=$profile_name" --association-id $iip; then
   aws cloud9 update-environment --environment-id $C9_PID --managed-credentials-action DISABLE
   rm -vf ${HOME}/.aws/credentials
-  echo "Profile associated successfully."
+  echo "Profile $profile_name associated successfully."
 else
   echo "ERROR: Encountered error associating instance profile lf-admin with Cloud9 environment"
 fi
