@@ -33,16 +33,6 @@ echo "export TF_VAR_region=${AWS_REGION}" | tee -a ~/.bash_profile
 aws configure set default.region ${AWS_REGION}
 aws configure get region
 
-
-echo "Setup Terraform cache"
-if [ ! -f $HOME/.terraform.d/plugin-cache ];then
-  mkdir -p $HOME/.terraform.d/plugin-cache
-  cp tf-setup/dot-terraform.rc $HOME/.terraformrc
-fi
-
-
-
-
 echo "pip3"
 curl --silent "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 python3 get-pip.py 2&> /dev/null
