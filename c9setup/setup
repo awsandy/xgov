@@ -89,10 +89,6 @@ this=`pwd`
 #echo "sample apps"
 cd ~/environment
 
-echo "Enable bash_completion"
-. /etc/profile.d/bash_completion.sh
-. ~/.bash_completion
-echo "alias tfb='terraform init && terraform plan -out tfplan && terraform apply tfplan'" >> ~/.bash_profile
 echo "alias aws='/usr/local/bin/aws'" >> ~/.bash_profile
 source ~/.bash_profile
 #
