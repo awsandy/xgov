@@ -5,12 +5,12 @@ resource "aws_lakeformation_resource_lf_tags" "db-xgov" {
 
   lf_tag {
     key   = aws_lakeformation_lf_tag.tags-xgov.key
-    value = "confidential"
+    value = "public"
   }
 }
 
 
-resource "aws_lakeformation_resource_lf_tags" "tables-xgov" {
+resource "aws_lakeformation_resource_lf_tags" "table-customers" {
   table {
     database_name="xgov"
     name="customers"
@@ -18,9 +18,39 @@ resource "aws_lakeformation_resource_lf_tags" "tables-xgov" {
 
   lf_tag {
     key   = aws_lakeformation_lf_tag.tags-xgov.key
-    value = "confidential"
+    value = "public"
   }
 }
+
+
+resource "aws_lakeformation_resource_lf_tags" "tables-products" {
+  table {
+    database_name="xgov"
+    name="products"
+  }
+
+  lf_tag {
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
+    value = "public"
+  }
+}
+
+resource "aws_lakeformation_resource_lf_tags" "tables-sales" {
+  table {
+    database_name="xgov"
+    name="sales"
+  }
+
+  lf_tag {
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
+    value = "public"
+  }
+}
+
+
+
+
+
 
 #### customers
 
