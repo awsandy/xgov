@@ -23,7 +23,7 @@ resource "aws_lakeformation_resource_lf_tags" "tables-xgov" {
 }
 
 resource "aws_lakeformation_resource_lf_tags" "table-customer-public" {
-  table {
+  table_with_columns {
     database_name=aws_lakeformation_resource_lf_tags.db-xgov.database
     name="customers"
     column_names=["Customer_ID"]
@@ -37,7 +37,7 @@ resource "aws_lakeformation_resource_lf_tags" "table-customer-public" {
 
 
 resource "aws_lakeformation_resource_lf_tags" "table-customer-private" {
-  table {
+  table_with_columns {
     database_name=aws_lakeformation_resource_lf_tags.db-xgov.database
     name="customers"
     column_names=["prefix","first_name","middle_name","last_name","suffix","gender"]
@@ -50,7 +50,7 @@ resource "aws_lakeformation_resource_lf_tags" "table-customer-private" {
 }
 
 resource "aws_lakeformation_resource_lf_tags" "table-customer-confidential" {
-  table {
+  table_with_columns {
     database_name=aws_lakeformation_resource_lf_tags.db-xgov.database
     name="customers"
     column_names=["dob","address"]
