@@ -13,8 +13,7 @@ resource "aws_lakeformation_resource_lf_tags" "db-xgov" {
 resource "aws_lakeformation_resource_lf_tags" "tables-xgov" {
   table {
     database_name="xgov"
-    name="*"
-    wildcard=true
+    name="customers"
   }
 
   lf_tag {
