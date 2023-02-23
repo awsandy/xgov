@@ -7,12 +7,12 @@ resource "aws_s3_object_copy" "customers" {
 
 resource "aws_s3_object_copy" "products" {
   bucket = aws_s3_bucket.xgov-data.id
-  key    = "raw-data/products.csv"
-  source = "event-engine-eu-west-1/xgovdata/products/products.csv"
+  key    = "raw-data/products/products.csv"
+  source = "event-engine-eu-west-1/xgovdata/products.csv"
 }
 
 resource "aws_s3_object_copy" "sales" {
   bucket = aws_s3_bucket.xgov-data.id
-  key    = "raw-data/sales.csv"
-  source = "event-engine-eu-west-1/xgovdata/sales/sales.csv"
+  key    = "raw-data/sales/sales.csv"
+  source = "event-engine-eu-west-1/xgovdata/sales.csv"
 }
