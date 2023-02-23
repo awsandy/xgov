@@ -4,7 +4,7 @@ resource "aws_lakeformation_resource_lf_tags" "db-xgov" {
   }
 
   lf_tag {
-    key   = "sensitivity"
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
     value = "confidential"
   }
 }
@@ -17,7 +17,7 @@ resource "aws_lakeformation_resource_lf_tags" "tables-xgov" {
   }
 
   lf_tag {
-    key   = "sensitivity"
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
     value = "confidential"
   }
 }
@@ -30,7 +30,7 @@ resource "aws_lakeformation_resource_lf_tags" "table-customer-public" {
   }
 
   lf_tag {
-    key   = "sensitivity"
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
     value = "public"
   }
 }
@@ -44,7 +44,7 @@ resource "aws_lakeformation_resource_lf_tags" "table-customer-public" {
   }
 
   lf_tag {
-    key   = "sensitivity"
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
     value = "public"
   }
 }
@@ -57,7 +57,7 @@ resource "aws_lakeformation_resource_lf_tags" "table-customer-private" {
   }
 
   lf_tag {
-    key   = "sensitivity"
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
     value = "public"
   }
 }
@@ -70,7 +70,7 @@ resource "aws_lakeformation_resource_lf_tags" "table-customer-confidential" {
   }
 
   lf_tag {
-    key   = "sensitivity"
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
     value = "public"
   }
 }
