@@ -1,4 +1,4 @@
-resource "aws_cloudformation_stack" "lf-xgov" {
+resource "aws_cloudformation_stack" "lf-users" {
 name = "lf-users"
 capabilities=["CAPABILITY_IAM","CAPABILITY_NAMED_IAM"]
 #  parameters = {
