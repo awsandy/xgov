@@ -22,7 +22,9 @@ resource "aws_lakeformation_resource_lf_tags" "tables-xgov" {
   }
 }
 
-resource "aws_lakeformation_resource_lf_tags" "table-customer-public" {
+#### customers
+
+resource "aws_lakeformation_resource_lf_tags" "table-customers-public" {
   table_with_columns {
     database_name="xgov"
     name="customers"
@@ -36,7 +38,7 @@ resource "aws_lakeformation_resource_lf_tags" "table-customer-public" {
 }
 
 
-resource "aws_lakeformation_resource_lf_tags" "table-customer-private" {
+resource "aws_lakeformation_resource_lf_tags" "table-customers-private" {
   table_with_columns {
     database_name="xgov"
     name="customers"
@@ -49,7 +51,7 @@ resource "aws_lakeformation_resource_lf_tags" "table-customer-private" {
   }
 }
 
-resource "aws_lakeformation_resource_lf_tags" "table-customer-confidential" {
+resource "aws_lakeformation_resource_lf_tags" "table-customers-confidential" {
   table_with_columns {
     database_name="xgov"
     name="customers"
@@ -62,3 +64,86 @@ resource "aws_lakeformation_resource_lf_tags" "table-customer-confidential" {
   }
 }
 
+### products
+
+resource "aws_lakeformation_resource_lf_tags" "table-products-public" {
+  table_with_columns {
+    database_name="xgov"
+    name="products"
+    column_names=["product key","sku #","product name","product description","brand","product type"]
+  }
+
+  lf_tag {
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
+    value = "public"
+  }
+}
+
+
+resource "aws_lakeformation_resource_lf_tags" "table-products-private" {
+  table_with_columns {
+    database_name="xgov"
+    name="products"
+    column_names=["category","sub category"]
+  }
+
+  lf_tag {
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
+    value = "private"
+  }
+}
+
+resource "aws_lakeformation_resource_lf_tags" "table-products-confidential" {
+  table_with_columns {
+    database_name="xgov"
+    name="products"
+    column_names=["unit price"]
+  }
+
+  lf_tag {
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
+    value = "confidential"
+  }
+}
+
+### sales
+
+resource "aws_lakeformation_resource_lf_tags" "table-sales-public" {
+  table_with_columns {
+    database_name="xgov"
+    name="sales"
+    column_names=["customer_id","product_id"]
+  }
+
+  lf_tag {
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
+    value = "public"
+  }
+}
+
+
+resource "aws_lakeformation_resource_lf_tags" "table-sales-private" {
+  table_with_columns {
+    database_name="xgov"
+    name="sales"
+    column_names=["txn_date","quantity"]
+  }
+
+  lf_tag {
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
+    value = "private"
+  }
+}
+
+resource "aws_lakeformation_resource_lf_tags" "table-sales-confidential" {
+  table_with_columns {
+    database_name="xgov"
+    name="sales"
+    column_names=["total_sales"]
+  }
+
+  lf_tag {
+    key   = aws_lakeformation_lf_tag.tags-xgov.key
+    value = "confidential"
+  }
+}

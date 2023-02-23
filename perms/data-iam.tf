@@ -11,3 +11,11 @@ data "aws_iam_role" "lf-admin" {
     name = "lf-admin"
 }
 
+data "aws_iam_role" "lf-developer" {
+    name = "lf-developer"
+}
+
+data "aws_iam_role" "lf-campaign-manager" {
+    name = "lf-campaign-manager"
+}
+
