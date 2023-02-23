@@ -14,8 +14,6 @@ resource "aws_lakeformation_permissions" "lf-admin" {
 
 }
 
-
-
 resource "aws_lakeformation_permissions" "lf-campaign-manager" {
   principal                     = data.aws_iam_role.lf-campaign-manager.arn
   permissions                   = ["ALTER", "DELETE", "DESCRIBE", "INSERT", "SELECT"]
