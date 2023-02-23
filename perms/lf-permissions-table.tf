@@ -5,11 +5,8 @@ resource "aws_lakeformation_permissions" "test" {
 
   lf_tag_policy {
     resource_type = "TABLE"
-      table {
-    database_name = "xgov"
     name      = "customers"
-  }
-
+  
     expression {
       key    = aws_lakeformation_lf_tag.tags-xgov.key
       values = ["public","private","confidential"]
